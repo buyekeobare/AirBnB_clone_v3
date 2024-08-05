@@ -14,7 +14,7 @@ def status_check():
 
 @app_views.route('/stats', methods=['GET'])
 def object_stats():
-    """Retrieves the no of each object by type"""
+    """Retrieves the number of each object by type"""
     objects = {
             "amenities": storage.count('Amenity'),
             "cities": storage.count('City'),
