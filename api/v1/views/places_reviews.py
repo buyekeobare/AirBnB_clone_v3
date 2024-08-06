@@ -9,6 +9,7 @@ from models import storage
 from models.place import Place
 from models.review import Review
 
+
 @app_views.route('/places/<place_id>/reviews', methods=['GET'],
                  strict_slashes=False)
 def get_reviews_by_place(place_id):
@@ -64,7 +65,8 @@ def create_review(place_id):
     return make_response(jsonify(review.to_dict()), 201)
 
 
-@app_views.route('/reviews/<review_id>', methods=['PUT'], strict_slashes=False)
+@app_views.route('/reviews/<review_id>', methods=['PUT'], 
+		strict_slashes=False)
 def update_review(review_id):
     """Update a Review object"""
     review = storage.get("Review", review_id)
@@ -74,7 +76,6 @@ def update_review(review_id):
     if not data:
         abort(400, 'Not a JSON')
 
-    # Update the State object's attributes based on the JSON data
     for key, value in data.items():
         if key not in ['id', 'user_id', 'place_id', 'created_at',
                        'updated_at']:
