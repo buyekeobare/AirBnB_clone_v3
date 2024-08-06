@@ -9,7 +9,8 @@ from models import storage
 from models.place import Place
 from models.review import Review
 
-@app_views.route('/places/<place_id>/reviews', methods=['GET'], strict_slashes=False)
+@app_views.route('/places/<place_id>/reviews', methods=['GET'],
+                 strict_slashes=False)
 def get_reviews_by_place(place_id):
     """Retrieve the list of all Review objects of a place"""
     place = storage.get("Place", place_id)
@@ -18,7 +19,8 @@ def get_reviews_by_place(place_id):
     return jsonify([review.to_dict() for review in place.reviews])
 
 
-@app_views.route('/reviews/<review_id>', methods=['GET'], strict_slashes=False)
+@app_views.route('/reviews/<review_id>', methods=['GET'],
+                 strict_slashes=False)
 def get_review(review_id):
     """Retrieve a review object by ID"""
     review = storage.get("Review", review_id)
@@ -27,7 +29,8 @@ def get_review(review_id):
     return jsonify(review.to_dict())
 
 
-@app_views.route('/reviews/<review_id>', methods=['DELETE'], strict_slashes=False)
+@app_views.route('/reviews/<review_id>', methods=['DELETE'],
+                 strict_slashes=False)
 def delete_review(review_id):
     """Delete a Review object by ID"""
     review = storage.get("Review", review_id)
@@ -38,7 +41,8 @@ def delete_review(review_id):
     return make_response(jsonify({}), 200)
 
 
-@app_views.route('/places/<place_id>/reviews', methods=['POST'], strict_slashes=False)
+@app_views.route('/places/<place_id>/reviews', methods=['POST'],
+                 strict_slashes=False)
 def create_review(place_id):
     """Create a Review object"""
     place = storage.get("Place", place_id)
@@ -61,7 +65,8 @@ def create_review(place_id):
     return make_response(jsonify(review.to_dict()), 201)
 
 
-@app_views.route('/reviews/<review_id>', methods=['PUT'], strict_slashes=False)
+@app_views.route('/reviews/review_id>', methods=['PUT'],
+                 strict_slashes=False)
 def update_review(review_id):
     """Update a Review object by ID"""
     review = storage.get("Review", review_id)
