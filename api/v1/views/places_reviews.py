@@ -8,7 +8,7 @@ from models import storage
 from models.place import Place
 from models.review import Review
 
-pp_views.route('/places/<place_id>/reviews', methods=['GET'],
+@app_views.route('/places/<place_id>/reviews', methods=['GET'],
                  strict_slashes=False)
 def get_reviews_by_place(place_id):
     """Retrieve the list of all Review objects of a place"""
