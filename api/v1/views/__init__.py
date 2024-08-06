@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-Creates Flask application blueprint
+Creates Flask application blueprint.
 """
 
 from flask import Blueprint
