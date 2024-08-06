@@ -19,10 +19,9 @@ def get_reviews_by_place(place_id):
     return jsonify([review.to_dict() for review in place.reviews])
 
 
-@app_views.route('/reviews/<review_id>', methods=['GET'],
-                 strict_slashes=False)
+@app_views.route('/reviews/<review_id>', methods=['GET'], strict_slashes=False)
 def get_review(review_id):
-    """Retrieve a review object by ID"""
+    """Retrieve a review object"""
     review = storage.get("Review", review_id)
     if review is None:
         abort(404)
@@ -32,7 +31,7 @@ def get_review(review_id):
 @app_views.route('/reviews/<review_id>', methods=['DELETE'],
                  strict_slashes=False)
 def delete_review(review_id):
-    """Delete a Review object by ID"""
+    """Delete a Review object"""
     review = storage.get("Review", review_id)
     if review is None:
         abort(404)
@@ -65,10 +64,9 @@ def create_review(place_id):
     return make_response(jsonify(review.to_dict()), 201)
 
 
-@app_views.route('/reviews/review_id>', methods=['PUT'],
-                 strict_slashes=False)
+@app_views.route('/reviews/<review_id>', methods=['PUT'], strict_slashes=False)
 def update_review(review_id):
-    """Update a Review object by ID"""
+    """Update a Review object"""
     review = storage.get("Review", review_id)
     if review is None:
         abort(404)
@@ -76,6 +74,7 @@ def update_review(review_id):
     if not data:
         abort(400, 'Not a JSON')
 
+    # Update the State object's attributes based on the JSON data
     for key, value in data.items():
         if key not in ['id', 'user_id', 'place_id', 'created_at',
                        'updated_at']:
