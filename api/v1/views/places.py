@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-route for handling Place objects and operations.
+route for handling Place objects and CRUD operations.
 """
 from flask import jsonify, request, abort, make_response
 from api.v1.views import app_views

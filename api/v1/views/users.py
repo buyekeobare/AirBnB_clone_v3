@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This script creates a view for User"""
+"""This script creates a view for User CRUD and blueprint"""
 
 from flask import jsonify, request, abort, make_response
 from api.v1.views import app_views

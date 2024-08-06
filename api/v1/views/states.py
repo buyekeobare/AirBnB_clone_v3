@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This script creates a view for state"""
+"""This script creates a view for state with import models and CRUD operations"""
 
 from flask import jsonify, request, abort, make_response
 from flasgger.utils import swag_from

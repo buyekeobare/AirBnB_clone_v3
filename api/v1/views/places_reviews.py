@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-route for handling Review objects and init file import.
+route for handling Review objects and init file import
+blueprint and CRUD.
 """
 from flask import jsonify, request, abort, make_response
 from api.v1.views import app_views
