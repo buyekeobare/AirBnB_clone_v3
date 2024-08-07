@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Creates a view for the link for Place & Amenity"""
+"""Creates a view for the link for Place & Amenity and CRUD ..."""
 
 from flask import jsonify, request, abort, make_response
 from api.v1.views import app_views
